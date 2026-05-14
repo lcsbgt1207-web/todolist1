@@ -55,8 +55,7 @@ jobs:
           npm install -g vercel
           vercel --prod --token $VERCEL_TOKEN --yes
     
-    sonarcloud:
-   
+  sonarcloud:
     name: SonarCloud Scan
     runs-on: ubuntu-latest
 
@@ -77,4 +76,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          npx sonarqube-scanner
+          npx sonarqube-scanner   
