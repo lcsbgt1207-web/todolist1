@@ -1,0 +1,21 @@
+Sprint 10 — Monitoring Grafana
+Description
+Mise en place d'un dashboard de monitoring Grafana connecté à SonarCloud pour visualiser en temps réel la qualité du code du projet todolist1.
+
+Liens
+RessourceLienDashboard Grafana (public)Voir le dashboardProjet SonarCloudlcsbgt1207-web_todolist1Dépôt GitHublcsbgt1207-web/todolist1
+
+Métriques monitorées
+PanneauMétrique SonarCloudValeur actuelleCoveragecoverage0%Code Smellscode_smells10Bugsbugs0Vulnerabilitiesvulnerabilities8
+
+Configuration
+Datasource
+
+Type : JSON API
+URL : https://sonarcloud.io/api
+Auth : Bearer Token (SonarCloud personal access token)
+
+Panneaux
+Chaque panneau est de type Gauge et interroge l'endpoint SonarCloud suivant :
+GET /measures/component?component=lcsbgt1207-web_todolist1&metricKeys=<metric>
+Extraction de la valeur via JSONPath : $.component.measures[0].value
